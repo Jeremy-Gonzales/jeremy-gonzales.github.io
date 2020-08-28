@@ -1,0 +1,250 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+$clr-dark: rgb(12, 17, 19);
+$clr-light: #fff;
+$clr-accent: rgb(222, 52, 0);
+$clr-accent-dark: rgb(163, 38, 0);
+$clr-secondary: #0094ea;
+$br: 0.5em;
+
+body {
+  font-family: "Oswald", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: $clr-dark;
+  color: $clr-light;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+.myButton {
+  cursor: pointer;
+
+  //box-shadow: 0px 10px 14px -7px #276873;
+  background-color: $clr-secondary;
+  border-radius: $br;
+  display: grid;
+  text-align: center;
+  color: $clr-light;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5em 0em;
+  margin-bottom: 0.5em;
+  transition: transform 250ms ease-in-out;
+  width: 55%;
+  align-self: center;
+  transition-duration: 300ms;
+}
+
+.card {
+  position: relative;
+  width: 12.5em;
+  cursor: pointer;
+}
+
+.teammates {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 2px solid $clr-dark;
+    opacity: 0.6;
+    background-color: white;
+  }
+}
+
+.rank {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  z-index: 1000;
+  font-weight: 700;
+  font-size: 1.125rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5em 0.5em 0.75em;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 85%, 0 100%);
+  transition: transform 200ms, cubic-bezier(0.38, 1, 0.53, 1) ease-in-out;
+}
+.front {
+  transition: 250ms;
+  .player {
+    border-radius: $br;
+  }
+  .name {
+    margin: 0.75em 0 0;
+  }
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  span {
+    font-size: 0.7rem;
+  }
+  .teammates img {
+    &:nth-of-type(1) {
+      transform: translateX(50%);
+      z-index: 1;
+    }
+    &:nth-of-type(2) {
+      transform: translateX(25%);
+    }
+  }
+}
+
+.back {
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  transform: translateY(35%);
+
+  .stats-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  .game-stat {
+    margin: 0 0 1em;
+    font-size: 1.125rem;
+    text-align: center;
+    font-weight: 700;
+    span {
+      font-size: 0.85rem;
+      display: block;
+    }
+  }
+
+  .teammates {
+    margin-top: 0.5em;
+    display: flex;
+  }
+
+  .ppg {
+    span {
+      font-size: 0.6rem;
+      font-weight: 400;
+    }
+  }
+  .avatar {
+    transition: transform 200ms ease-in-out, opacity 150ms linear;
+  }
+}
+
+.background {
+  background: rgb(12, 36, 68);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0.2, 0.8);
+  border-radius: $br;
+}
+
+.card:hover {
+  .rank {
+    transform: translate(190%, -165%);
+  }
+  .front {
+    transform: translateY(-33%) scale(0.85);
+
+    .name {
+      animation: playerName 250ms forwards;
+      font-size: 1.5rem;
+    }
+
+    .stats {
+      opacity: 0;
+    }
+  }
+
+  .back {
+    opacity: 1;
+    transition: transform 250ms ease, opacity 150ms linear;
+    transform: translateY(0);
+    .teammates {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .teammate {
+      font-size: 0.9rem;
+    }
+    .icon {
+      transform: scale(1.2);
+    }
+    .name {
+      font-weight: bold;
+    }
+  }
+  .background {
+    opacity: 1;
+    transform: scale(1.6, 1.2) translateY(-5%);
+    transition: transform 200ms, cubic-bezier(0.38, 1, 0.53, 1) ease-in-out,
+      opacity 100ms linear;
+  }
+}
+
+.avatar:hover {
+  opacity: 1;
+  border-color: $clr-light;
+  background-color: $clr-secondary;
+  transform: scale(1.2) translateY(-10%);
+}
+
+.myButton:hover {
+  background-color: white;
+  color: $clr-dark;
+  transform: scale(1.1);
+}
+
+@keyframes playerName {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+
+  25% {
+    text-align: left;
+    opacity: 0;
+  }
+
+  45% {
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  100% {
+    text-align: center;
+    opacity: 1;
+  }
+}

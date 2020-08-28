@@ -2,98 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Poppins:wght@200;300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Profile Card</title>
+    <title>Player Card</title>
   </head>
+
   <body>
-    <div class="modal">
-      <img src="img/profile.jpg" alt="" />
-      <div class="close"></div>
-    </div>
-
-    <div class="container">
-      <div class="card">
-        <div class="header">
-          <div class="hamburger-menu">
-            <div class="center"></div>
-          </div>
-          <a href="#" class="add">
-            <i class="far fa-plus-square"></i>
-          </a>
-          <div class="main">
-            <div class="image">
-              <div class="hover">
-                <i class="fas fa-camera fa-2x"></i>
-              </div>
-            </div>
-            <h3 class="name">Seth Abner</h3>
-            <h3 class="sub-name">@scump</h3>
-          </div>
-        </div>
-
-        <div class="content">
-          <div class="left">
-            <div class="about-container">
-              <h3 class="title">About</h3>
-              <p class="text">
-                Seth Abner is an American professional Call of Duty League
-                player forthe Chicago Huntsmen (NRG Esports).
-              </p>
-            </div>
-            <div class="icons-container">
-              <a href="https://twitter.com/scump" class="icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UCCWSG8MXoqvIEBPRnOSxwzw"
-                class="icon"
-              >
-                <i class="fab fa-youtube"></i>
-              </a>
-              <a href="https://www.twitch.tv/scump" class="icon">
-                <i class="fab fa-twitch"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/scumpabner/?hl=en"
-                class="icon"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-            <div class="buttons-wrap">
-              <div class="follow-wrap">
-                <a href="#" class="follow">Follow</a>
-              </div>
-              <div class="share-wrap">
-                <a href="#" class="share">Share</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="right">
-            <div>
-              <h3 class="number">#16</h3>
-              <h3 class="number-title">Earnings</h3>
-            </div>
-            <div>
-              <h3 class="number">28</h3>
-              <h3 class="number-title">Championships</h3>
-            </div>
-            <div>
-              <h3 class="number">1</h3>
-              <h3 class="number-title">World Title</h3>
-            </div>
+    <div class="card">
+      <div class="rank">6</div>
+      <div class="front">
+        <img class="player" src="img/luka_doncic.jpg" alt="" />
+        <h3 class="name">Luka Dončić</h3>
+        <div class="stats">
+          <p class="points">28.8<span>PPG</span></p>
+          <div class="teammates">
+            <img src="img/porzingis.png" alt="" />
+            <img src="img/hardaway.png" alt="" />
+            <img src="img/seth-curry.png" alt="" />
           </div>
         </div>
       </div>
+
+      <div class="back">
+        <div class="stats-info">
+          <p class="game-stat">28.8<span>PPG</span></p>
+          <p class="game-stat">9.4<span>REB</span></p>
+          <p class="game-stat">8.8<span>AST</span></p>
+        </div>
+        <a href="#" class="myButton">More Stats</a>
+        <div class="teammates">
+          <div class="teammate">
+            <div class="icon">
+              <img class="avatar" src="img/porzingis.png" alt="" />
+            </div>
+            <p class="name">Porzingis</p>
+            <p class="ppg">20.1<span>PPG</span></p>
+          </div>
+          <div class="teammate">
+            <div class="icon">
+              <img class="avatar" src="img/hardaway.png" alt="" />
+            </div>
+            <p class="name">Hardaway</p>
+            <p class="ppg">18.2<span>PPG</span></p>
+          </div>
+          <div class="teammate">
+            <div class="icon">
+              <img class="avatar" src="img/seth-curry.png" alt="" />
+            </div>
+            <p class="name">Curry</p>
+            <p class="ppg">16.8<span>PPG</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="background"></div>
     </div>
-    <script src="app.js"></script>
   </body>
 </html>
