@@ -5,8 +5,8 @@
 }
 $clr-dark: rgb(12, 17, 19);
 $clr-light: #fff;
-$clr-accent: rgb(222, 52, 0);
-$clr-accent-dark: rgb(163, 38, 0);
+$clr-accent: rgb(0, 83, 188);
+$clr-accent-dark: rgb(0, 43, 92);
 $clr-secondary: #0094ea;
 $br: 0.5em;
 
@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: $clr-dark;
+  background: radial-gradient(#97c8ff, #101536);
   color: $clr-light;
 }
 
@@ -33,7 +33,7 @@ img {
   cursor: pointer;
 
   //box-shadow: 0px 10px 14px -7px #276873;
-  background-color: $clr-secondary;
+  background-color: $clr-accent;
   border-radius: $br;
   display: grid;
   text-align: center;
@@ -42,7 +42,7 @@ img {
   text-decoration: none;
   padding: 0.5em 0em;
   margin-bottom: 0.5em;
-  transition: transform 250ms ease-in-out;
+  transition: ease-in-out;
   width: 55%;
   align-self: center;
   transition-duration: 300ms;
@@ -63,7 +63,6 @@ img {
     height: 2em;
     border-radius: 50%;
     border: 2px solid $clr-dark;
-    opacity: 0.6;
     background-color: white;
   }
 }
@@ -82,13 +81,17 @@ img {
 }
 .front {
   transition: 250ms;
+  background-color: $clr-dark;
+  border-radius: 0.6em 0.6em $br $br;
   .player {
-    border-radius: $br;
+    border-radius: $br $br 0em 0em;
   }
   .name {
-    margin: 0.75em 0 0;
+    margin: 0.6em 0 0;
+    padding: 0em 0.5em;
   }
   .stats {
+    padding: 0em 0.5em 0.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -153,21 +156,40 @@ img {
     }
   }
   .avatar {
-    transition: transform 200ms ease-in-out, opacity 150ms linear;
+    opacity: 0.8;
+    transition: transform 200ms ease-in-out;
   }
 }
 
 .background {
-  background: rgb(12, 36, 68);
+  background-color: rgb(18, 22, 37);
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   opacity: 0;
   transform: scale(0.2, 0.8);
   border-radius: $br;
+}
+
+.logo {
+  //background-color: pink;
+  width: 318px;
+  height: 521.9px;
+  position: absolute;
+  z-index: -1;
+  border-radius: $br;
+  top: -16%;
+  bottom: 0;
+  right: 0;
+  left: -29%;
+  overflow: hidden;
+  img {
+    opacity: 0;
+    transform: scale(2) translateX(28%) translateY(18%);
+  }
 }
 
 .card:hover {
@@ -176,7 +198,11 @@ img {
   }
   .front {
     transform: translateY(-33%) scale(0.85);
+    background-color: rgba(1, 1, 1, 0);
 
+    .player {
+      border-radius: $br;
+    }
     .name {
       animation: playerName 250ms forwards;
       font-size: 1.5rem;
@@ -198,11 +224,15 @@ img {
     .teammate {
       font-size: 0.9rem;
     }
-    .icon {
-      transform: scale(1.2);
-    }
     .name {
       font-weight: bold;
+    }
+  }
+  .logo {
+    //transform: scale(3.23, 1.42) translateY(10%);
+    img {
+      opacity: 0.5;
+      transition: opacity 400ms linear;
     }
   }
   .background {
@@ -216,14 +246,18 @@ img {
 .avatar:hover {
   opacity: 1;
   border-color: $clr-light;
-  background-color: $clr-secondary;
+  background-color: $clr-accent;
   transform: scale(1.2) translateY(-10%);
 }
 
 .myButton:hover {
   background-color: white;
-  color: $clr-dark;
+  color: $clr-accent-dark;
   transform: scale(1.1);
+}
+
+.myButton:active {
+  transform: translateY(2px);
 }
 
 @keyframes playerName {
